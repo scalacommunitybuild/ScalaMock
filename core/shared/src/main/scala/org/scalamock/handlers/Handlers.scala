@@ -32,7 +32,7 @@ private[scalamock] abstract class Handlers extends Handler {
   
   override def toString = 
     handlers.map { h => 
-      h.toString.lines map { l => "  "+ l }
+      augmentString(h.toString).lines map { l => "  "+ l }
     }.flatten.mkString(s"$prefix {\n", "\n", "\n}")
   
   protected val handlers = new ListBuffer[Handler]
